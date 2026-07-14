@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Grade 11 General Math - Lesson 5: Solving Inequalities (11Jen-math-T1-1.5-exam)</title>
+    <title>🧮 Solving Inequalities Exam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         body.en-mode { font-family: 'Inter', sans-serif; }
@@ -25,7 +25,7 @@
             position: fixed; top: 16px; left: 16px; z-index: 100;
             background: white; padding: 6px; border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-            border: 2px solid #0d9488;
+            border: 2px solid #4f46e5;
         }
         [dir="ltr"] .lang-switch { left: auto; right: 16px; }
         .lang-btn {
@@ -33,8 +33,8 @@
             transition: all 0.3s; border: none; font-size: 0.875rem;
             background: transparent; color: #6b7280;
         }
-        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
-        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .lang-btn.active { background: #4f46e5; color: white; box-shadow: 0 2px 6px rgba(79,70,229,0.4); }
+        .lang-btn:hover:not(.active) { background: #eef2ff; color: #4f46e5; }
         .shuffle-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
     </style>
-<script src="/_aistudio-iframe.js"></script></head>
+</head>
 <body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
     <div class="lang-switch no-print">
@@ -56,24 +56,24 @@
     </div>
 
     <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
-        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-indigo-100">
             <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
-            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span id="timer" class="text-2xl font-bold text-indigo-600 font-mono">60:00</span>
             <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
         </div>
     </div>
 
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="toggleAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
         <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
-        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
     </div>
 
-    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-indigo-600">
         <div class="text-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الحادي عشر عام" data-en="⚡ Grade 11 General Mathematics">⚡ رياضيات الصف الحادي عشر عام</h1>
-            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس الخامس: حل المتباينات (الفصل الدراسي الأول)" data-en="Lesson 5: Solving Inequalities (Term 1)">الدرس الخامس: حل المتباينات (الفصل الدراسي الأول)</h2>
-            <p class="text-sm text-gray-600 mt-2" data-ar="اختبار تقييمي تفاعلي شامل يغطي خواص المتباينات، تمثيل الفترات المفتوحة والمغلقة، حل متباينات متعددة الخطوات، ونمذجة الميزانيات والحدود الواقعية." data-en="Lesson 5: Solving Inequalities complete interactive test aligned with Ministry syllabus.">اختبار تقييمي تفاعلي شامل يغطي خواص المتباينات، تمثيل الفترات المفتوحة والمغلقة، حل متباينات متعددة الخطوات، ونمذجة الميزانيات والحدود الواقعية.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="🧮 امتحان حل المتباينات" data-en="🧮 Solving Inequalities Exam">🧮 امتحان حل المتباينات</h1>
+            <h2 class="text-lg text-indigo-600 font-semibold" data-ar="Solving Inequalities" data-en="Solving Inequalities">Solving Inequalities</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="أسئلة تغطي: خاصيتا الجمع والطرح في المتباينات، خاصيتا الضرب والقسمة في المتباينات، حل المتباينات مترقمة الدرجات، كتابة وحل المتباينات من مسائل حياتية، وتحليل الأخطاء والتعبير بالفترات" data-en="Covers: Addition/Subtraction Properties of Inequalities, Multiplication/Division Properties of Inequalities, Solving Multi-Step Inequalities, Writing & Solving Inequalities from Word Problems, and Error Analysis & Interval Notation">أسئلة تغطي: خاصيتا الجمع والطرح في المتباينات، خاصيتا الضرب والقسمة في المتباينات، حل المتباينات مترقمة الدرجات، كتابة وحل المتباينات من مسائل حياتية، وتحليل الأخطاء والتعبير بالفترات</p>
             <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
         </div>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -81,7 +81,7 @@
             <span><span data-ar="👤 الاسم:" data-en="👤 Name:">👤 الاسم:</span> <input type="text" id="studentName" class="border-b border-gray-400 bg-transparent w-32 text-center" placeholder="Enter name"></span>
             <span><span data-ar="🏫 الشعبة:" data-en="🏫 Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b border-gray-400 bg-transparent w-28 text-center" placeholder="Class"></span>
             <span><span data-ar="⏱️ المدة: 60 دقيقة" data-en="⏱️ Duration: 60 min">⏱️ المدة: 60 دقيقة</span></span>
-            <span><span data-ar="📊 המجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
+            <span><span data-ar="📊 المجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
         </div>
     </header>
 
@@ -94,7 +94,7 @@
     <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
         <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
         <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-indigo-700">-</p></div>
             <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
             <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
         </div>
@@ -107,29 +107,29 @@
             <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
-                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="خاصيتا الجمع والطرح في المتباينات" data-en="Addition/Subtraction Properties">خاصيتا الجمع والطرح في المتباينات</span>
+                    <span id="sec1-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
-                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="خاصيتا الضرب والقسمة في المتباينات" data-en="Multiplication/Division Properties">خاصيتا الضرب والقسمة في المتباينات</span>
+                    <span id="sec2-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
-                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="حل المتباينات مترقمة الدرجات" data-en="Solving Multi-Step Inequalities">حل المتباينات مترقمة الدرجات</span>
+                    <span id="sec3-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
-                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="كتابة وحل المتباينات من مسائل حياتية" data-en="Writing & Solving from Word Problems">كتابة وحل المتباينات من مسائل حياتية</span>
+                    <span id="sec4-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
-                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="تحليل الأخطاء والتعبير بالفترات" data-en="Error Analysis & Interval Notation">تحليل الأخطاء والتعبير بالفترات</span>
+                    <span id="sec5-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
             </div>
         </div>
         <div class="text-center mb-6">
-            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
             <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
         </div>
         <div class="flex gap-3 justify-center">
@@ -138,10 +138,11 @@
     </div>
 
     <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-        © <span data-ar="رياضيات الصف 11 عام | الدرس الخامس: حل المتباينات" data-en="Grade 11 General Math | Lesson 5: Solving Inequalities">رياضيات الصف 11 عام | الدرس الخامس: حل المتباينات</span> | Platform 4U Education
+        © <span data-ar="Solving Inequalities" data-en="Solving Inequalities">Solving Inequalities</span> | Mr. Mohammed Hesham
     </footer>
 
 <script>
+// ==================== EmailJS Settings ====================
 const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
 const SERVICE_ID = "service_w15m64i";
 const TEMPLATE_ID = "template_5b0u2tq";
@@ -150,624 +151,254 @@ const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
 const originalExamData = {
-    "sections": [
+    sections: [
         {
-            "title": {
-                "ar": "🔹 الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-                "en": "🔹 Part 1: Basic Concepts, Rules, and Definitions"
-            },
-            "questions": [
+            id: 'sec1',
+            title: { ar: '🔹 الجزء الأول: خاصيتا الجمع والطرح في المتباينات', en: '🔹 Part 1: Addition/Subtraction Properties of Inequalities' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "ما هي أهم قاعدة يجب الالتزام بها عند ضرب أو قسمة طرفي متباينة على عدد سالب؟",
-                        "en": "What is the most important rule to follow when multiplying or dividing both sides of an inequality by a negative number?"
-                    },
-                    "options": [
-                        {
-                            "ar": "يجب قلب اتجاه رمز المتباينة فوراً",
-                            "en": "The direction of the inequality symbol must be reversed immediately"
-                        },
-                        {
-                            "ar": "تظل إشارة المتباينة كما هي دون أي تغيير",
-                            "en": "The inequality symbol remains exactly the same without any change"
-                        },
-                        {
-                            "ar": "يتحول اتجاه المتباينة لتصبح معادلة مساواة خطية",
-                            "en": "The inequality symbol changes into an equality sign"
-                        },
-                        {
-                            "ar": "يتم إضافة النظير الجمعي للطرف الأيمن فقط",
-                            "en": "The additive inverse is added to the right side only"
-                        }
+                    q: { ar: 'ما نص خاصية الجمع في المتباينات؟', en: 'What is the addition property of inequalities?' },
+                    options: [
+                        { ar: 'لأية أعداد حقيقية a وb وc: إذا كان a>b فإن a+c>b+c، وإذا كان a<b فإن a+c<b+c', en: 'For any real numbers a, b, c: if a>b then a+c>b+c, and if a<b then a+c<b+c' },
+                        { ar: 'إضافة نفس الرقم دائماً تعكس اتجاه المتباينة', en: 'Adding the same number always reverses the direction of the inequality' },
+                        { ar: 'إضافة الرقم c تُغيّر صحة المتباينة دائماً', en: "Adding the number c always changes the inequality's validity" },
+                        { ar: 'الجمع لا يُستخدم أبداً في حل المتباينات', en: 'Addition is never used in solving inequalities' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "ضرب أو قسمة طرفي متباينة على عدد سالب يعكس العلاقة الرياضية للترتيب، لذا يجب قلب الرمز (مثلاً الأصغر يصبح أكبر).",
-                        "en": "Multiplying or dividing by a negative number reverses the order relationship, so the inequality symbol must be flipped."
-                    }
+                    correct: 0,
+                    answer: { ar: 'خاصية الجمع في المتباينات: لأية أعداد حقيقية a وb وc، إذا كان a>b فإن a+c>b+c، وإذا كان a<b فإن a+c<b+c؛ أي أن إضافة نفس الرقم لطرفي المتباينة لا يؤثر على صحتها', en: 'The addition property: for any real numbers a, b, c, if a>b then a+c>b+c, and if a<b then a+c<b+c; adding the same number to both sides does not affect the validity of the inequality' }
                 },
                 {
-                    "q": {
-                        "ar": "كيف يتم التعبير عن العبارة 'الأعداد الأكبر من أو تساوي -3 والأصغر تماماً من 5' باستخدام رمز الفترة؟",
-                        "en": "How is the phrase 'numbers greater than or equal to -3 and strictly less than 5' expressed using interval notation?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">[-3, 5)</span>",
-                            "en": "<span class=\"formula\">[-3, 5)</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">(-3, 5]</span>",
-                            "en": "<span class=\"formula\">(-3, 5]</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">[-3, 5]</span>",
-                            "en": "<span class=\"formula\">[-3, 5]</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">(-3, 5)</span>",
-                            "en": "<span class=\"formula\">(-3, 5)</span>"
-                        }
+                    q: { ar: 'حل المتباينة y - 6 < 3.', en: 'Solve the inequality y - 6 < 3.' },
+                    options: [
+                        { ar: 'y < 9', en: 'y < 9' },
+                        { ar: 'y < 3', en: 'y < 3' },
+                        { ar: 'y < -3', en: 'y < -3' },
+                        { ar: 'y > 9', en: 'y > 9' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "القوس المربع [ يعني مغلق (أكبر من أو يساوي)، والقوس العادي ) يعني مفتوح (أصغر تماماً). لذا الفترة هي <span class=\"formula\">[-3, 5)</span>.",
-                        "en": "The bracket [ means closed (inclusive), while the parenthesis ) means open (exclusive). The interval is <span class=\"formula\">[-3, 5)</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بإضافة 6 إلى كل طرف: y-6+6 < 3+6، وبالتبسيط: y < 9', en: 'Adding 6 to both sides: y-6+6 < 3+6, simplifying: y < 9' }
                 },
                 {
-                    "q": {
-                        "ar": "أي مما يلي يمثل مجموعة الحل للمتباينة <span class=\"formula\">x < 4</span> مكتوبة بصيغة بناء المجموعة (Set-Builder Notation)؟",
-                        "en": "Which of the following represents the solution set of the inequality <span class=\"formula\">x < 4</span> in set-builder notation?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">{x | x < 4, x ∈ R}</span>",
-                            "en": "<span class=\"formula\">{x | x < 4, x ∈ R}</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">{x | x > 4}</span>",
-                            "en": "<span class=\"formula\">{x | x > 4}</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">[x < 4]</span>",
-                            "en": "<span class=\"formula\">[x < 4]</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">{4 | x < 4}</span>",
-                            "en": "<span class=\"formula\">{4 | x < 4}</span>"
-                        }
+                    q: { ar: 'حل المتباينة 5w + 3 > 4w + 9.', en: 'Solve the inequality 5w + 3 > 4w + 9.' },
+                    options: [
+                        { ar: 'w > 6', en: 'w > 6' },
+                        { ar: 'w < 6', en: 'w < 6' },
+                        { ar: 'w > 12', en: 'w > 12' },
+                        { ar: 'w > -6', en: 'w > -6' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "صيغة بناء المجموعة تستخدم الأقواس المتعرجة وتحدد الشرط اللازم للمتغير بوضوح: <span class=\"formula\">{x | x < 4, x ∈ R}</span>.",
-                        "en": "Set-builder notation uses braces and explicitly defines the variable's condition: <span class=\"formula\">{x | x < 4, x ∈ R}</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بطرح 4w من كل طرف: w+3>9، وبطرح 3 من كل طرف: w>6', en: 'Subtracting 4w from both sides: w+3>9, then subtracting 3: w>6' }
                 },
                 {
-                    "q": {
-                        "ar": "ما الذي تمثله الدائرة المفتوحة (Unfilled Circle) على خط الأعداد عند رسم حل متباينة؟",
-                        "en": "What does an unfilled circle on a number line represent when graphing an inequality?"
-                    },
-                    "options": [
-                        {
-                            "ar": "أن قيمة نقطة الحدود غير مدرجة ضمن مجموعة الحل (أصغر أو أكبر تماماً)",
-                            "en": "That the boundary point value is excluded from the solution set (strictly less or greater than)"
-                        },
-                        {
-                            "ar": "أن قيمة نقطة الحدود مدرجة ومشمولة بالحل (أكبر من أو يساوي)",
-                            "en": "That the boundary point value is included in the solution set (inclusive)"
-                        },
-                        {
-                            "ar": "أن المتباينة ليس لها أي حلول حقيقية على الإطلاق",
-                            "en": "That the inequality has no real solutions at all"
-                        },
-                        {
-                            "ar": "أن الحل يبدأ وينتهي عند نفس النقطة فقط",
-                            "en": "That the solution starts and ends at that point only"
-                        }
+                    q: { ar: 'عند تمثيل مجموعة حل المتباينات بيانياً على خط الأعداد، متى تُستخدم الدائرة المفتوحة (غير المشتملة) بدلاً من النقطة المصمتة؟', en: 'When graphing an inequality solution set on a number line, when is an open circle used instead of a closed (filled) dot?' },
+                    options: [
+                        { ar: 'مع رمزي > و< فقط', en: 'Only with the symbols > and <' },
+                        { ar: 'مع رمزي ≥ و≤ فقط', en: 'Only with the symbols ≥ and ≤' },
+                        { ar: 'مع جميع رموز المتباينة دون استثناء', en: 'With all inequality symbols, without exception' },
+                        { ar: 'لا تُستخدم الدائرة المفتوحة أبداً في التمثيل البياني', en: 'An open circle is never used in graphing' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الدائرة المفتوحة تشير إلى الاستبعاد (أصغر تماماً < أو أكبر تماماً >)، بينما المظللة تشير للاحتواء (≤ أو ≥).",
-                        "en": "An open circle indicates exclusion (strictly < or >), while a filled circle indicates inclusion (≤ or ≥)."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تُستخدم الدائرة (غير المشتملة/المفتوحة) لتمثيل > و<، بينما تُستخدم النقطة المصمتة لتمثيل ≥ و≤', en: 'An open circle is used to represent > and <, while a filled (closed) dot is used to represent ≥ and ≤' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-                "en": "🔹 Part 2: Calculations and Exact Numerical Solutions"
-            },
-            "questions": [
+            id: 'sec2',
+            title: { ar: '🔹 الجزء الثاني: خاصيتا الضرب والقسمة في المتباينات', en: '🔹 Part 2: Multiplication/Division Properties of Inequalities' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "حل المتباينة التالية: <span class=\"formula\">5w + 3 > 4w + 9</span>؟",
-                        "en": "Solve the inequality: <span class=\"formula\">5w + 3 > 4w + 9</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">w > 6</span>",
-                            "en": "<span class=\"formula\">w > 6</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w < 6</span>",
-                            "en": "<span class=\"formula\">w < 6</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w > 12</span>",
-                            "en": "<span class=\"formula\">w > 12</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w ≥ 6</span>",
-                            "en": "<span class=\"formula\">w ≥ 6</span>"
-                        }
+                    q: { ar: 'ماذا يحدث لعلامة المتباينة عند ضرب أو قسمة كل طرف من المتباينة على رقم سالب؟', en: 'What happens to the inequality sign when both sides are multiplied or divided by a negative number?' },
+                    options: [
+                        { ar: 'تنعكس علامة المتباينة (مثلاً تتحول ≥ إلى ≤)', en: 'The inequality sign reverses (e.g. ≥ becomes ≤)' },
+                        { ar: 'تبقى علامة المتباينة كما هي دون أي تغيير', en: 'The inequality sign stays exactly the same' },
+                        { ar: 'تتحول المتباينة دائماً إلى معادلة', en: 'The inequality always turns into an equation' },
+                        { ar: 'يصبح للمتباينة أكثر من حل ممكن دائماً', en: 'The inequality always gains more than one possible solution' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بطرح <span class=\"formula\">4w</span> من الطرفين: <span class=\"formula\">w + 3 > 9</span>. بطرح 3 من الطرفين: <span class=\"formula\">w > 6</span>.",
-                        "en": "Subtract <span class=\"formula\">4w</span>: <span class=\"formula\">w + 3 > 9</span>. Subtract 3: <span class=\"formula\">w > 6</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'ضرب أو قسمة كل طرف من المتباينة على رقم سالب يؤدي إلى عكس علامة المتباينة، على سبيل المثال يتم عكس ≥ والاستعاضة عنها بـ ≤', en: 'Multiplying or dividing both sides of an inequality by a negative number reverses the inequality sign; for example ≥ is reversed to ≤' }
                 },
                 {
-                    "q": {
-                        "ar": "أوجد حل المتباينة التالية: <span class=\"formula\">-4x ≥ -24</span>؟",
-                        "en": "Find the solution to the inequality: <span class=\"formula\">-4x ≥ -24</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">x ≤ 6</span>",
-                            "en": "<span class=\"formula\">x ≤ 6</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x ≥ 6</span>",
-                            "en": "<span class=\"formula\">x ≥ 6</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x ≥ -6</span>",
-                            "en": "<span class=\"formula\">x ≥ -6</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x ≤ -6</span>",
-                            "en": "<span class=\"formula\">x ≤ -6</span>"
-                        }
+                    q: { ar: 'حل المتباينة -4.2x ≤ -29.4.', en: 'Solve the inequality -4.2x ≤ -29.4.' },
+                    options: [
+                        { ar: 'x ≥ 7', en: 'x ≥ 7' },
+                        { ar: 'x ≤ 7', en: 'x ≤ 7' },
+                        { ar: 'x ≥ -7', en: 'x ≥ -7' },
+                        { ar: 'x ≤ -7', en: 'x ≤ -7' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بقسمة الطرفين على عدد سالب <span class=\"formula\">-4</span>، يجب عكس رمز المتباينة: <span class=\"formula\">x ≤ 6</span>.",
-                        "en": "Dividing by a negative number <span class=\"formula\">-4</span>, we must reverse the inequality: <span class=\"formula\">x ≤ 6</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بقسمة كل طرف على -4.2 (رقم سالب)، تنعكس علامة المتباينة: x ≥ (-29.4)/(-4.2) = 7', en: 'Dividing both sides by -4.2 (a negative number) reverses the inequality: x ≥ (-29.4)/(-4.2) = 7' }
                 },
                 {
-                    "q": {
-                        "ar": "حل المتباينة التالية الكسرية: <span class=\"formula\">-w/4 ≤ -7</span>؟",
-                        "en": "Solve the following fractional inequality: <span class=\"formula\">-w/4 ≤ -7</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">w ≥ 28</span>",
-                            "en": "<span class=\"formula\">w ≥ 28</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w ≤ 28</span>",
-                            "en": "<span class=\"formula\">w ≤ 28</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w ≥ -28</span>",
-                            "en": "<span class=\"formula\">w ≥ -28</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">w ≤ -28</span>",
-                            "en": "<span class=\"formula\">w ≤ -28</span>"
-                        }
+                    q: { ar: 'حل المتباينة -4x ≥ -24.', en: 'Solve the inequality -4x ≥ -24.' },
+                    options: [
+                        { ar: 'x ≤ 6', en: 'x ≤ 6' },
+                        { ar: 'x ≥ 6', en: 'x ≥ 6' },
+                        { ar: 'x ≤ -6', en: 'x ≤ -6' },
+                        { ar: 'x ≥ -6', en: 'x ≥ -6' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "نضرب طرفي المتباينة في <span class=\"formula\">-4</span> ونعكس الاتجاه فوراً: <span class=\"formula\">w ≥ 28</span>.",
-                        "en": "Multiply both sides by <span class=\"formula\">-4</span> and reverse the inequality: <span class=\"formula\">w ≥ 28</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بقسمة كل طرف على -4 (رقم سالب)، تنعكس علامة المتباينة من ≥ إلى ≤: x ≤ 6', en: 'Dividing both sides by -4 (a negative number) reverses ≥ to ≤: x ≤ 6' }
                 },
                 {
-                    "q": {
-                        "ar": "حل المتباينة التالية بدقة: <span class=\"formula\">-9.2y < 23</span>؟",
-                        "en": "Solve the following inequality: <span class=\"formula\">-9.2y < 23</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">y > -2.5</span>",
-                            "en": "<span class=\"formula\">y > -2.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">y < -2.5</span>",
-                            "en": "<span class=\"formula\">y < -2.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">y > 2.5</span>",
-                            "en": "<span class=\"formula\">y > 2.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">y ≥ -2.5</span>",
-                            "en": "<span class=\"formula\">y ≥ -2.5</span>"
-                        }
+                    q: { ar: 'إذا كان a>b وضُرب كل طرف في رقم c موجب، فما العلاقة الناتجة؟', en: 'If a>b and both sides are multiplied by a positive number c, what is the resulting relation?' },
+                    options: [
+                        { ar: 'ac > bc', en: 'ac > bc' },
+                        { ar: 'ac < bc', en: 'ac < bc' },
+                        { ar: 'ac = bc', en: 'ac = bc' },
+                        { ar: 'لا يمكن تحديد العلاقة', en: 'The relation cannot be determined' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بقسمة الطرفين على العدد السالب <span class=\"formula\">-9.2</span> وعكس اتجاه الرمز: <span class=\"formula\">y > 23 / -9.2 = -2.5</span>.",
-                        "en": "Dividing both sides by the negative number <span class=\"formula\">-9.2</span> and reversing the symbol direction yields <span class=\"formula\">y > -2.5</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'حيث c رقم موجب: إذا كان a>b فإن ac>bc (لا تنعكس العلامة عند الضرب في رقم موجب)', en: 'Where c is positive: if a>b then ac>bc (the sign does not reverse when multiplying by a positive number)' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-                "en": "🔹 Part 3: Advanced Skills, Applications, and Problems"
-            },
-            "questions": [
+            id: 'sec3',
+            title: { ar: '🔹 الجزء الثالث: حل المتباينات مترقمة الدرجات', en: '🔹 Part 3: Solving Multi-Step Inequalities' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "أوجد مجموعة حل المتباينة التالية: <span class=\"formula\">3(r - 2) < 2r + 4</span>؟",
-                        "en": "Find the solution set of the inequality: <span class=\"formula\">3(r - 2) < 2r + 4</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">{r | r < 10}</span>",
-                            "en": "<span class=\"formula\">{r | r < 10}</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">{r | r > 10}</span>",
-                            "en": "<span class=\"formula\">{r | r > 10}</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">{r | r < -2}</span>",
-                            "en": "<span class=\"formula\">{r | r < -2}</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">{r | r < 2}</span>",
-                            "en": "<span class=\"formula\">{r | r < 2}</span>"
-                        }
+                    q: { ar: 'حل المتباينة (5c+58)/6 ≤ -4c.', en: 'Solve the inequality (5c+58)/6 ≤ -4c.' },
+                    options: [
+                        { ar: 'c ≥ -2', en: 'c ≥ -2' },
+                        { ar: 'c ≤ -2', en: 'c ≤ -2' },
+                        { ar: 'c ≥ 2', en: 'c ≥ 2' },
+                        { ar: 'c ≤ 2', en: 'c ≤ 2' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتوزيع: <span class=\"formula\">3r - 6 < 2r + 4</span>. نطرح <span class=\"formula\">2r</span> من الطرفين: <span class=\"formula\">r - 6 < 4</span>. نضيف 6 للطرفين: <span class=\"formula\">r < 10</span>.",
-                        "en": "By distribution: <span class=\"formula\">3r - 6 < 2r + 4</span>. Subtract <span class=\"formula\">2r</span>: <span class=\"formula\">r - 6 < 4</span>. Add 6: <span class=\"formula\">r < 10</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بضرب كل طرف في 6: 5c+58 ≤ -24c، بإضافة 24c: 29c+58 ≤ 0 أي 58 ≥ -29c، وبقسمة كل طرف على -29 (سالب فتنعكس العلامة): c ≥ -2', en: 'Multiplying both sides by 6: 5c+58 ≤ -24c; adding 24c: 29c+58 ≤ 0, so 58 ≥ -29c; dividing by -29 (negative, sign reverses): c ≥ -2' }
                 },
                 {
-                    "q": {
-                        "ar": "ما هو حل المتباينة التالية: <span class=\"formula\">4v + 8 ≥ 6(v - 1)</span>؟",
-                        "en": "What is the solution of the inequality: <span class=\"formula\">4v + 8 ≥ 6(v - 1)</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">v ≤ 7</span>",
-                            "en": "<span class=\"formula\">v ≤ 7</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">v ≥ 7</span>",
-                            "en": "<span class=\"formula\">v ≥ 7</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">v ≤ 1</span>",
-                            "en": "<span class=\"formula\">v ≤ 1</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">v ≥ 1</span>",
-                            "en": "<span class=\"formula\">v ≥ 1</span>"
-                        }
+                    q: { ar: 'حل المتباينة -3x ≤ (-4x+22)/5.', en: 'Solve the inequality -3x ≤ (-4x+22)/5.' },
+                    options: [
+                        { ar: 'x ≥ -2', en: 'x ≥ -2' },
+                        { ar: 'x ≤ -2', en: 'x ≤ -2' },
+                        { ar: 'x ≥ 2', en: 'x ≥ 2' },
+                        { ar: 'x ≤ 2', en: 'x ≤ 2' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتوزيع: <span class=\"formula\">4v + 8 ≥ 6v - 6</span>. نطرح <span class=\"formula\">4v</span>: <span class=\"formula\">8 ≥ 2v - 6</span>. نضيف 6: <span class=\"formula\">14 ≥ 2v</span>. نقسم على 2: <span class=\"formula\">7 ≥ v</span> أو <span class=\"formula\">v ≤ 7</span>.",
-                        "en": "Expand: <span class=\"formula\">4v + 8 ≥ 6v - 6</span>. Subtract <span class=\"formula\">4v</span>: <span class=\"formula\">8 ≥ 2v - 6</span>. Add 6: <span class=\"formula\">14 ≥ 2v</span>. Divide by 2: <span class=\"formula\">v ≤ 7</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بضرب كل طرف في 5: -15x ≤ -4x+22، بإضافة 4x لكل طرف: -11x ≤ 22، وبقسمة كل طرف على -11 (سالب، فتنعكس العلامة): x ≥ -2', en: 'Multiplying both sides by 5: -15x ≤ -4x+22; adding 4x to both sides: -11x ≤ 22; dividing both sides by -11 (negative, so the sign reverses): x ≥ -2' }
                 },
                 {
-                    "q": {
-                        "ar": "أوجد مجموعة حل المتباينة التالية: <span class=\"formula\">6(x + 1) - 2x < 4x + 10</span>؟",
-                        "en": "Find the solution set of the inequality: <span class=\"formula\">6(x + 1) - 2x < 4x + 10</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "مجموعة الحل هي R (جميع الأعداد الحقيقية)",
-                            "en": "The solution set is R (all real numbers)"
-                        },
-                        {
-                            "ar": "المجموعة الخالية Ø (لا يوجد حل حقيقي)",
-                            "en": "The empty set Ø (no real solution)"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x < 1</span>",
-                            "en": "<span class=\"formula\">x < 1</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x > 1</span>",
-                            "en": "<span class=\"formula\">x > 1</span>"
-                        }
+                    q: { ar: 'حل المتباينة -6(-4v+3) ≤ 2(10v+3).', en: 'Solve the inequality -6(-4v+3) ≤ 2(10v+3).' },
+                    options: [
+                        { ar: 'v ≤ 6', en: 'v ≤ 6' },
+                        { ar: 'v ≥ 6', en: 'v ≥ 6' },
+                        { ar: 'v ≤ -6', en: 'v ≤ -6' },
+                        { ar: 'v ≥ -6', en: 'v ≥ -6' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الطرف الأيسر: <span class=\"formula\">6x + 6 - 2x = 4x + 6</span>. المتباينة تصبح: <span class=\"formula\">4x + 6 < 4x + 10</span>. بطرح <span class=\"formula\">4x</span> نحصل على <span class=\"formula\">6 < 10</span> وهي عبارة صحيحة دائماً، لذا الحل هو R.",
-                        "en": "Left side: <span class=\"formula\">4x + 6</span>. Inequality is <span class=\"formula\">4x + 6 < 4x + 10</span>. Subtract <span class=\"formula\">4x</span> yields <span class=\"formula\">6 < 10</span> (always true). Solution is R."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بالتوزيع: 24v-18 ≤ 20v+6، بطرح 20v من كل طرف: 4v-18 ≤ 6، بإضافة 18 لكل طرف: 4v ≤ 24، وبالقسمة على 4 (موجب، لا تنعكس العلامة): v ≤ 6', en: 'Distributing: 24v-18 ≤ 20v+6; subtracting 20v from both sides: 4v-18 ≤ 6; adding 18 to both sides: 4v ≤ 24; dividing by 4 (positive, sign does not reverse): v ≤ 6' }
                 },
                 {
-                    "q": {
-                        "ar": "حل المتباينة التالية: <span class=\"formula\">2(1 - 2x) < -4(x + 1)</span>؟",
-                        "en": "Solve the inequality: <span class=\"formula\">2(1 - 2x) < -4(x + 1)</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "المجموعة الخالية Ø (لا يوجد حل)",
-                            "en": "The empty set Ø (no solution)"
-                        },
-                        {
-                            "ar": "مجموعة الأعداد الحقيقية R",
-                            "en": "The set of real numbers R"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x < 1</span>",
-                            "en": "<span class=\"formula\">x < 1</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x > 0</span>",
-                            "en": "<span class=\"formula\">x > 0</span>"
-                        }
+                    q: { ar: 'حل المتباينة -5(3d-7) > 3(2d+14).', en: 'Solve the inequality -5(3d-7) > 3(2d+14).' },
+                    options: [
+                        { ar: 'd < -1/3', en: 'd < -1/3' },
+                        { ar: 'd > -1/3', en: 'd > -1/3' },
+                        { ar: 'd < 1/3', en: 'd < 1/3' },
+                        { ar: 'd > 1/3', en: 'd > 1/3' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتوزيع: <span class=\"formula\">2 - 4x < -4x - 4</span>. بإضافة <span class=\"formula\">4x</span> للطرفين نحصل على: <span class=\"formula\">2 < -4</span> وهذا تناقض رياضي خاطئ دائماً، لذا المتباينة ليس لها حل ومجموعة الحل Ø.",
-                        "en": "Expand: <span class=\"formula\">2 - 4x < -4x - 4</span>. Add <span class=\"formula\">4x</span>: <span class=\"formula\">2 < -4</span> (impossible). No solution (Ø)."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بالتوزيع: -15d+35 > 6d+42، بطرح 6d: -21d+35 > 42، بطرح 35: -21d > 7، وبالقسمة على -21 (سالب فتنعكس العلامة): d < -1/3', en: 'Distributing: -15d+35 > 6d+42; subtracting 6d: -21d+35 > 42; subtracting 35: -21d > 7; dividing by -21 (negative, sign reverses): d < -1/3' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-                "en": "🔹 Part 4: Mathematical Modeling, Graphing, and Practical Problems"
-            },
-            "questions": [
+            id: 'sec4',
+            title: { ar: '🔹 الجزء الرابع: كتابة وحل المتباينات من مسائل حياتية', en: '🔹 Part 4: Writing & Solving Inequalities from Word Problems' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "يرغب عيسى في كسب دخل شهري لا يقل عن AED 50 من موقعه الخاص. إذا كان يحصل على رسوم ثابتة من الإعلانات بقيمة AED 15 شهرياً، بالإضافة إلى AED 0.05 مقابل كل نقرة على الإعلان. ما هي المتباينة الممثلة لعدد النقرات <span class=\"formula\">c</span> المطلوبة شهرياً؟",
-                        "en": "Eissa wants to earn at least AED 50 monthly from his website. He gets AED 15 flat fee for advertising monthly, plus AED 0.05 per click. What inequality represents the number of clicks <span class=\"formula\">c</span> needed?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">15 + 0.05c ≥ 50</span>",
-                            "en": "<span class=\"formula\">15 + 0.05c ≥ 50</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">15 + 0.05c ≤ 50</span>",
-                            "en": "<span class=\"formula\">15 + 0.05c ≤ 50</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">0.05c ≥ 50</span>",
-                            "en": "<span class=\"formula\">0.05c ≥ 50</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">15c + 0.05 ≥ 50</span>",
-                            "en": "<span class=\"formula\">15c + 0.05 ≥ 50</span>"
-                        }
+                    q: { ar: 'يحصل سالم على AED15 شهرياً باﻹضافة إلى AED0.05 عن كل نقرة، ويريد أن يربح AED50 على الأقل. باستخدام المتباينة 15+0.05c≥50، ما أقل عدد من النقرات c التي يحتاجها؟', en: 'Salem earns AED15 monthly plus AED0.05 per click, and wants to earn at least AED50. Using 15+0.05c≥50, what is the minimum number of clicks c needed?' },
+                    options: [
+                        { ar: 'c ≥ 700', en: 'c ≥ 700' },
+                        { ar: 'c ≥ 350', en: 'c ≥ 350' },
+                        { ar: 'c ≥ 50', en: 'c ≥ 50' },
+                        { ar: 'c ≥ 15', en: 'c ≥ 15' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الدخل الإجمالي هو الرسوم الثابتة (15) مضافاً إليها ناتج ضرب معدل النقرة (0.05) في عدد النقرات c، ويجب أن يكون أكبر من أو يساوي (≥) 50.",
-                        "en": "Total income is AED 15 plus AED 0.05 times click count <span class=\"formula\">c</span>, which must be at least (≥) 50."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بطرح 15 من كل طرف: 0.05c ≥ 35، وبالقسمة على 0.05: c ≥ 700', en: 'Subtracting 15 from both sides: 0.05c ≥ 35; dividing by 0.05: c ≥ 700' }
                 },
                 {
-                    "q": {
-                        "ar": "من السؤال السابق، ما هو الحد الأدنى لعدد النقرات التي يجب أن يحصل عليها عيسى لتفادي عجز الميزانية المطلوبة؟",
-                        "en": "From the previous question, what is the minimum number of clicks Eissa must receive to meet his goal?"
-                    },
-                    "options": [
-                        {
-                            "ar": "لا يقل عن <span class=\"formula\">700</span> نقرة",
-                            "en": "At least <span class=\"formula\">700</span> clicks"
-                        },
-                        {
-                            "ar": "لا يقل عن <span class=\"formula\">1000</span> نقرة",
-                            "en": "At least <span class=\"formula\">1000</span> clicks"
-                        },
-                        {
-                            "ar": "لا يقل عن <span class=\"formula\">500</span> نقرة",
-                            "en": "At least <span class=\"formula\">500</span> clicks"
-                        },
-                        {
-                            "ar": "أكثر من <span class=\"formula\">1200</span> نقرة",
-                            "en": "More than <span class=\"formula\">1200</span> clicks"
-                        }
+                    q: { ar: 'خطة اشتراك روزا للهاتف هي AED50 شهرياً باﻹضافة إلى AED0.25 لكل دقيقة إضافية. تريد أن تدفع أقل من AED70. أي متباينة تمثل هذا الموقف إذا رمزنا لعدد الدقائق الإضافية بـ m؟', en: "Rosa's phone plan is AED50 monthly plus AED0.25 per extra minute. She wants to pay less than AED70. Which inequality represents this if m is the number of extra minutes?" },
+                    options: [
+                        { ar: '50 + 0.25m < 70', en: '50 + 0.25m < 70' },
+                        { ar: '50 + 0.25m > 70', en: '50 + 0.25m > 70' },
+                        { ar: '50 - 0.25m < 70', en: '50 - 0.25m < 70' },
+                        { ar: '0.25 + 50m < 70', en: '0.25 + 50m < 70' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بحل المتباينة: <span class=\"formula\">15 + 0.05c ≥ 50 -> 0.05c ≥ 35 -> c ≥ 35 / 0.05 -> c ≥ 700</span> نقرة.",
-                        "en": "Solving <span class=\"formula\">15 + 0.05c ≥ 50 -> 0.05c ≥ 35 -> c ≥ 700</span> clicks."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بما أن التكلفة الثابتة AED50 والتكلفة المتغيرة AED0.25 لكل دقيقة m، والمطلوب دفع أقل من AED70، فالمتباينة هي 50+0.25m<70', en: 'Since the fixed cost is AED50 and the variable cost is AED0.25 per minute m, and the total must be less than AED70, the inequality is 50+0.25m<70' }
                 },
                 {
-                    "q": {
-                        "ar": "رصدت مدرسة ميزانية أقصاها AED 1200 لرحلة طلابية. إذا كانت تكلفة استئجار الحافلة AED 450 والوجبة للطالب الواحد تبلغ AED 15. ما هي المتباينة المحددة لعدد الطلاب <span class=\"formula\">s</span> الممكن اصطحابهم؟",
-                        "en": "A school budgeted a maximum of AED 1200 for a field trip. Bus rental costs AED 450, and meals cost AED 15 per student. Which inequality limits the number of students <span class=\"formula\">s</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">450 + 15s ≤ 1200</span>",
-                            "en": "<span class=\"formula\">450 + 15s ≤ 1200</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">450 + 15s ≥ 1200</span>",
-                            "en": "<span class=\"formula\">450 + 15s ≥ 1200</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">15s ≤ 1200</span>",
-                            "en": "<span class=\"formula\">15s ≤ 1200</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">450s + 15 ≤ 1200</span>",
-                            "en": "<span class=\"formula\">450s + 15 ≤ 1200</span>"
-                        }
+                    q: { ar: 'دانييلا تمشي بسرعة 3 أميال في الساعة، وتأخذ ساعتين استراحة (غداء وعشاء). تريد أن تمشي 18 ميلاً على الأقل. تحل المتباينة 3(x-2)≥18 حيث x عدد الساعات الكلي. ما أقل عدد ساعات تحتاجه؟', en: 'Daniela walks at 3 mph and takes 2 hours of breaks (lunch and dinner). She wants to walk at least 18 miles. Solving 3(x-2)≥18 where x is total hours, what is the minimum number of hours needed?' },
+                    options: [
+                        { ar: '8 ساعات', en: '8 hours' },
+                        { ar: '6 ساعات', en: '6 hours' },
+                        { ar: '20 ساعة', en: '20 hours' },
+                        { ar: '2 ساعة', en: '2 hours' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "التكلفة الكلية تساوي سعر الحافلة زائد تكلفة وجبات الطلاب <span class=\"formula\">15s</span>، ويجب ألا تتجاوز الميزانية (≤ 1200).",
-                        "en": "The total cost is bus rental plus meals for students <span class=\"formula\">15s</span>, which must be less than or equal to (≤) 1200."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بالتوزيع: 3x-6≥18، بإضافة 6: 3x≥24، وبالقسمة على 3: x≥8، فتحتاج دانييلا إلى 8 ساعات على الأقل', en: 'Distributing: 3x-6≥18; adding 6: 3x≥24; dividing by 3: x≥8, so Daniela needs at least 8 hours' }
                 },
                 {
-                    "q": {
-                        "ar": "من السؤال السابق، ما هو أقصى عدد من الطلاب يمكن اصطحابهم في الرحلة؟",
-                        "en": "From the previous question, what is the maximum number of students who can join the trip?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">50</span> طالباً كحد أقصى",
-                            "en": "<span class=\"formula\">50</span> students maximum"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">80</span> طالباً كحد أقصى",
-                            "en": "<span class=\"formula\">80</span> students maximum"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">40</span> طالباً كحد أقصى",
-                            "en": "<span class=\"formula\">40</span> students maximum"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">60</span> طالباً كحد أقصى",
-                            "en": "<span class=\"formula\">60</span> students maximum"
-                        }
+                    q: { ar: 'يتقاضى جين راتباً AED250 أسبوعياً بالإضافة إلى عمولة 3% من متوسط مبيعات الإعلانات AED500. باستخدام المتباينة 250+0.03(500a)≥700، ما أقل عدد إعلانات a يجب أن يبيعها ليحصل على AED700 على الأقل؟', en: 'Jane earns AED250 weekly plus 3% commission on average ad sales of AED500. Using 250+0.03(500a)≥700, what is the minimum number of ads a she must sell to earn at least AED700?' },
+                    options: [
+                        { ar: '30 إعلاناً', en: '30 ads' },
+                        { ar: '15 إعلاناً', en: '15 ads' },
+                        { ar: '50 إعلاناً', en: '50 ads' },
+                        { ar: '250 إعلاناً', en: '250 ads' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بحل المتباينة: <span class=\"formula\">450 + 15s ≤ 1200 -> 15s ≤ 750 -> s ≤ 50</span> طالباً.",
-                        "en": "Solving <span class=\"formula\">450 + 15s ≤ 1200 -> 15s ≤ 750 -> s ≤ 50</span> students."
-                    }
+                    correct: 0,
+                    answer: { ar: '250+15a≥700، بطرح 250: 15a≥450، وبالقسمة على 15: a≥30، فيجب على جين بيع 30 إعلاناً على الأقل', en: '250+15a≥700; subtracting 250: 15a≥450; dividing by 15: a≥30, so Jane must sell at least 30 ads' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي",
-                "en": "🔹 Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-            },
-            "questions": [
+            id: 'sec5',
+            title: { ar: '🔹 الجزء الخامس: تحليل الأخطاء والتعبير بالفترات', en: '🔹 Part 5: Error Analysis & Interval Notation' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "إذا كان لدينا المتباينة <span class=\"formula\">ax < b</span> حيث <span class=\"formula\">a</span> عدداً حقيقياً سالباً، فما هي الصياغة الصحيحة لمجموعة الحل؟",
-                        "en": "If we have the inequality <span class=\"formula\">ax < b</span> where <span class=\"formula\">a</span> is a negative real number, what is the correct formulation of the solution set?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">x > b / a</span>",
-                            "en": "<span class=\"formula\">x > b / a</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x < b / a</span>",
-                            "en": "<span class=\"formula\">x < b / a</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x > a / b</span>",
-                            "en": "<span class=\"formula\">x > a / b</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x < a / b</span>",
-                            "en": "<span class=\"formula\">x < a / b</span>"
-                        }
+                    q: { ar: 'قارنت مادلين وإيميلي حلولهما للمتباينة (4x+5)/(-2) - 1 > -3. عند الخطوة الثانية (بعد إضافة 1 لكل طرف فقط)، عكست مادلين علامة المتباينة بينما لم تعكسها إيميلي. من كانت على صواب في تلك الخطوة، ولماذا؟', en: 'Madeline and Emily compared solutions to (4x+5)/(-2) - 1 > -3. At step two (after only adding 1 to both sides), Madeline reversed the inequality sign while Emily did not. Who was correct at that step, and why?' },
+                    options: [
+                        { ar: 'إيميلي، لأن عكس علامة المتباينة يكون فقط عند الضرب أو القسمة على رقم سالب، وليس عند الجمع أو الطرح', en: 'Emily, because the inequality sign is reversed only when multiplying or dividing by a negative number, not when adding or subtracting' },
+                        { ar: 'مادلين، لأن الجمع دائماً يعكس علامة المتباينة', en: 'Madeline, because addition always reverses the inequality sign' },
+                        { ar: 'كلتاهما صحيحتان لأن الجمع والضرب متكافئان', en: 'Both are correct because addition and multiplication are equivalent' },
+                        { ar: 'لا يمكن تحديد من كانت على صواب', en: 'It cannot be determined who was correct' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بما أن <span class=\"formula\">a</span> سالب، عند القسمة عليه يجب عكس اتجاه علاقة المتباينة مباشرة لتصبح أكبر من.",
-                        "en": "Since <span class=\"formula\">a</span> is negative, dividing by it reverses the inequality symbol direction to greater than."
-                    }
+                    correct: 0,
+                    answer: { ar: 'إيميلي كانت على صواب في تلك الخطوة، لأن إضافة رقم لطرفي المتباينة لا يؤثر على اتجاهها؛ عكس علامة المتباينة يحدث فقط عند الضرب أو القسمة على رقم سالب', en: 'Emily was correct at that step, because adding a number to both sides of an inequality does not affect its direction; the sign reverses only when multiplying or dividing by a negative number' }
                 },
                 {
-                    "q": {
-                        "ar": "إذا علمت أن <span class=\"formula\">x + 5 < 12</span> و <span class=\"formula\">x - 2 > 3</span>. فما هي الفروق بين مجموعتي حل هاتين المتبادلتين؟",
-                        "en": "If <span class=\"formula\">x + 5 < 12</span> and <span class=\"formula\">x - 2 > 3</span>. What are the boundaries of their solutions?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الأولى تعطي <span class=\"formula\">x < 7</span> والثانية تعطي <span class=\"formula\">x > 5</span>",
-                            "en": "The first yields <span class=\"formula\">x < 7</span> and the second yields <span class=\"formula\">x > 5</span>"
-                        },
-                        {
-                            "ar": "الأولى تعطي <span class=\"formula\">x > 7</span> والثانية تعطي <span class=\"formula\">x < 5</span>",
-                            "en": "The first yields <span class=\"formula\">x > 7</span> and the second yields <span class=\"formula\">x < 5</span>"
-                        },
-                        {
-                            "ar": "المتبادلتان متطابقتان ولهما نفس الحل تماماً وهو 7",
-                            "en": "The two inequalities are identical and have the same solution of 7"
-                        },
-                        {
-                            "ar": "الأولى تعطي <span class=\"formula\">x < 17</span> والثانية تعطي <span class=\"formula\">x > 1</span>",
-                            "en": "The first yields <span class=\"formula\">x < 17</span> and the second yields <span class=\"formula\">x > 1</span>"
-                        }
+                    q: { ar: 'لماذا يجب عكس علامة المتباينة عند الضرب أو القسمة على رقم سالب؟', en: 'Why must the inequality sign be reversed when multiplying or dividing by a negative number?' },
+                    options: [
+                        { ar: 'لأن الضرب أو القسمة على رقم سالب يعكس ترتيب الأعداد على خط الأعداد، فما كان أكبر يصبح أصغر والعكس صحيح', en: 'Because multiplying or dividing by a negative number reverses the order of numbers on the number line, so what was greater becomes smaller and vice versa' },
+                        { ar: 'لأن الأرقام السالبة ليست أعداداً حقيقية', en: 'Because negative numbers are not real numbers' },
+                        { ar: 'هذا مجرد قاعدة تعسفية بدون سبب رياضي', en: 'This is just an arbitrary rule with no mathematical reason' },
+                        { ar: 'لأن القسمة على رقم سالب غير معرّفة رياضياً', en: 'Because division by a negative number is mathematically undefined' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "متباينة 1: <span class=\"formula\">x < 7</span>. متباينة 2: <span class=\"formula\">x > 5</span>.",
-                        "en": "Inequality 1: <span class=\"formula\">x < 7</span>. Inequality 2: <span class=\"formula\">x > 5</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'عكس المتباينة ضروري لأن الضرب أو القسمة على رقم سالب يعكس الترتيب النسبي للأعداد على خط الأعداد، فمثلاً -5<-3 لكن عند الضرب في -4 يصبح 20>12', en: 'Reversing the inequality is necessary because multiplying or dividing by a negative number reverses the relative order of numbers on the number line; for example -5<-3, but multiplying by -4 gives 20>12' }
                 },
                 {
-                    "q": {
-                        "ar": "لأي متباينة خطية بالصورة <span class=\"formula\">x + y ≤ z</span>. إذا علم أن <span class=\"formula\">z = 10</span> و <span class=\"formula\">y = 4.5</span>. أوجد قيم <span class=\"formula\">x</span> المحققة؟",
-                        "en": "For any linear inequality of the form <span class=\"formula\">x + y ≤ z</span>. If <span class=\"formula\">z = 10</span> and <span class=\"formula\">y = 4.5</span>. Find satisfying <span class=\"formula\">x</span> values?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">x ≤ 5.5</span>",
-                            "en": "<span class=\"formula\">x ≤ 5.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x ≥ 5.5</span>",
-                            "en": "<span class=\"formula\">x ≥ 5.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x < 5.5</span>",
-                            "en": "<span class=\"formula\">x < 5.5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">x = 5.5</span>",
-                            "en": "<span class=\"formula\">x = 5.5</span>"
-                        }
+                    q: { ar: 'كيف تُكتب مجموعة الحل {y|y<9} باستخدام التعبير بالفترات؟', en: 'How is the solution set {y|y<9} written using interval notation?' },
+                    options: [
+                        { ar: '(-∞, 9)', en: '(-∞, 9)' },
+                        { ar: '(-∞, 9]', en: '(-∞, 9]' },
+                        { ar: '[9, +∞)', en: '[9, +∞)' },
+                        { ar: '(9, +∞)', en: '(9, +∞)' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتعويض: <span class=\"formula\">x + 4.5 ≤ 10 -> x ≤ 10 - 4.5 -> x ≤ 5.5</span>.",
-                        "en": "By substitution: <span class=\"formula\">x + 4.5 ≤ 10 -> x ≤ 5.5</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بما أن y<9 (بدون تساوٍ)، تُستخدم الأقواس ( ) عند 9 وعند -∞ دائماً: (-∞, 9)', en: 'Since y<9 (strict inequality), parentheses ( ) are used at 9, and always at -∞: (-∞, 9)' }
                 },
                 {
-                    "q": {
-                        "ar": "لماذا نستخدم المجموعات المفتوحة والمغلقة لتمثيل حلول المتباينات بدلاً من قائمة أرقام؟",
-                        "en": "Why do we use open/closed intervals to represent inequality solutions instead of a list of numbers?"
-                    },
-                    "options": [
-                        {
-                            "ar": "لأن حل المتباينة يضم عدداً لانهائياً من الأعداد الحقيقية في فترات مستمرة ومتصلة لا يمكن حصرها يدوياً",
-                            "en": "Because inequality solutions include an infinite number of real numbers in continuous intervals that cannot be manually listed"
-                        },
-                        {
-                            "ar": "لأن كتابة الفترات تجعل الحسابات معقدة لطلاب المرحلة الثانوية",
-                            "en": "Because writing intervals makes calculations complex for high school students"
-                        },
-                        {
-                            "ar": "لأن الأعداد الحقيقية لا تشمل الكسور والكسور العشرية إلا في الفترات",
-                            "en": "Because real numbers do not include fractions/decimals except in intervals"
-                        },
-                        {
-                            "ar": "لا توجد أسباب رياضية محددة بل هو مجرد تقليد تاريخي متبع",
-                            "en": "There are no specific mathematical reasons; it is merely a historical convention"
-                        }
+                    q: { ar: 'كيف تُكتب المتباينة المركبة y<-1 أو y≥7 باستخدام التعبير بالفترات ورمز الاتحاد؟', en: 'How is the compound inequality y<-1 or y≥7 written using interval notation and the union symbol?' },
+                    options: [
+                        { ar: '(-∞, -1) ∪ [7, +∞)', en: '(-∞, -1) ∪ [7, +∞)' },
+                        { ar: '(-∞, -1] ∪ (7, +∞)', en: '(-∞, -1] ∪ (7, +∞)' },
+                        { ar: '[-1, 7]', en: '[-1, 7]' },
+                        { ar: '(-1, 7)', en: '(-1, 7)' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "مجموعة الأعداد الحقيقية R كثيفة ومستمرة، لذا أي فترة بين عددين تحتوي على عدد لا نهائي من القيم الكسرية والنسبية، مما يستوجب استخدام الفترات الممثلة لها.",
-                        "en": "The set of real numbers R is dense, meaning any interval between two numbers contains infinitely many values, requiring interval notation."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بما أن y<-1 لا تشمل -1 (قوس)، وy≥7 تشمل 7 (قوس معقوف)، فإن الاتحاد يُكتب: (-∞, -1) ∪ [7, +∞)', en: 'Since y<-1 does not include -1 (parenthesis), and y≥7 includes 7 (bracket), the union is written: (-∞, -1) ∪ [7, +∞)' }
                 }
             ]
         }
@@ -813,6 +444,8 @@ function prepareShuffledExam() {
             globalIdx++;
         });
     });
+    
+    console.log('✅ تم خلط الأسئلة والخيارات بنجاح');
 }
 
 function reshuffleExam() {
@@ -849,8 +482,8 @@ function setLanguage(lang) {
 function renderExam() {
     const container = document.getElementById('exam-content');
     const labels = {
-        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
-        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' }
     };
     const lbl = labels[currentLang];
     const isRTL = currentLang === 'ar';
@@ -861,13 +494,13 @@ function renderExam() {
     examData.sections.forEach((section) => {
         html += `
         <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">${section.title[currentLang]}</h2>
             <ol class="space-y-4 text-sm">`;
             
         section.questions.forEach((q) => {
             const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
             html += `
-                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                <li class="${borderSide} border-indigo-500 py-2" id="q-${globalIdx}">
                     <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
                     
             q.options.forEach((opt, oIdx) => {
@@ -932,17 +565,15 @@ function gradeExam() {
                 correctCount++;
                 li.classList.add('correct');
                 li.classList.remove('incorrect');
-            } else {
-                li.classList.add('incorrect');
-                li.classList.remove('correct');
-            }
-
-            if (isCorrect) {
+                
                 if (i < 4) sec1++;
                 else if (i < 8) sec2++;
                 else if (i < 12) sec3++;
                 else if (i < 16) sec4++;
                 else sec5++;
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
             }
         }
     }
@@ -950,7 +581,7 @@ function gradeExam() {
     const score = (correctCount / 20) * 100;
     const successRate = Math.round(score);
     
-    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
     document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     
@@ -995,85 +626,74 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
 
     const sectionNames = {
-        ar: [
-            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
-        ],
-        en: [
-            "Part 1: Basic Concepts, Rules, and Definitions",
-            "Part 2: Calculations and Exact Numerical Solutions",
-            "Part 3: Advanced Skills, Applications, and Problems",
-            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
-            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-        ]
+        ar: ['خاصيتا الجمع والطرح في المتباينات', 'خاصيتا الضرب والقسمة في المتباينات', 'حل المتباينات مترقمة الدرجات', 'كتابة وحل المتباينات من مسائل حياتية', 'تحليل الأخطاء والتعبير بالفترات'],
+        en: ['Addition/Subtraction Properties', 'Multiplication/Division Properties', 'Solving Multi-Step Inequalities', 'Writing & Solving from Word Problems', 'Error Analysis & Interval Notation']
     };
     const currentSectionNames = sectionNames[currentLang];
 
     let answersHTML = `
-        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: \${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: \${currentLang === 'ar' ? 'right' : 'left'};">
-            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
-                <h2 style="margin: 0; font-size: 22px;">⚡ \${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">\${currentLang === 'ar' ? 'رياضيات الصف الحادي عشر عام | الفصل الدراسي الأول' : 'Grade 11 General Math | Term 1'}</p>
-                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 \${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};">
+            <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">🧮 ${currentLang === 'ar' ? 'نتيجة امتحان حل المتباينات' : 'Solving Inequalities Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'Solving Inequalities' : 'Solving Inequalities'}</p>
+                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 ${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
             </div>
             
-            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+            <div style="background: #eef2ff; padding: 15px; border: 1px solid #c7d2fe;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
-                        <td style="padding: 8px;">\${name}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
-                        <td style="padding: 8px;">\${studentClass}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px;">${name}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px;">${studentClass}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
-                        <td style="padding: 8px;">\${date}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
-                        <td style="padding: 8px;">\${badge}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px;">${date}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px;">${badge}</td>
                     </tr>
                 </table>
             </div>
 
             <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">\${score}</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #4f46e5;">${score}</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
                 </div>
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #059669;">\${successRate}%</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #059669;">${successRate}%</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
                 </div>
             </div>
 
             <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
-                \${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+                📝 ${currentLang === 'ar' ? 'تفاصيل الإجابات' : 'Answer Details'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #0d9488; color: white;">
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    <tr style="background: #4f46e5; color: white;">
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
                     </tr>
                 </thead>
                 <tbody>
     `;
 
-    let sectionScores = [sec1, sec2, sec3, sec4, sec5];
+    let sectionScores = [0, 0, 0, 0, 0];
     let sectionTotals = [4, 4, 4, 4, 4];
 
     for (let i = 0; i < 20; i++) {
-        const selected = document.querySelector(`input[name="q\${i}"]:checked`);
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
         const selectedValue = selected ? selected.value : '-';
         const correctValue = correctAnswersMap[i];
         const isCorrect = selectedValue === correctValue;
         
         const sectionIndex = Math.floor(i / 4);
+        if (isCorrect) sectionScores[sectionIndex]++;
 
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         const statusBg = isCorrect ? '#dcfce7' : '#fee2e2';
@@ -1084,13 +704,13 @@ function sendResultsToEmail() {
             : (currentLang === 'ar' ? 'خطأ' : 'Wrong');
 
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${i + 1}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb;">\${currentSectionNames[sectionIndex]}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${selectedValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">\${correctValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: \${statusBg}; color: \${statusColor}; font-weight: bold;">
-                    \${statusIcon} \${statusText}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${i + 1}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">${currentSectionNames[sectionIndex]}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${selectedValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">${correctValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: ${statusBg}; color: ${statusColor}; font-weight: bold;">
+                    ${statusIcon} ${statusText}
                 </td>
             </tr>
         `;
@@ -1100,15 +720,15 @@ function sendResultsToEmail() {
                 </tbody>
             </table>
 
-            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
-                📊 \${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #4f46e5;">
+                📊 ${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
                     <tr style="background: #7c3aed; color: white;">
-                        <th style="padding: 10px; border: 1px solid #6d28d9;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
+                        <th style="padding: 10px; border: 1px solid #6d28d9;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
+                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1120,16 +740,16 @@ function sendResultsToEmail() {
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">\${currentSectionNames[i]}</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
-                    \${sectionScores[i]} / \${sectionTotals[i]}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">${currentSectionNames[i]}</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #4f46e5;">
+                    ${sectionScores[i]} / ${sectionTotals[i]}
                 </td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb;">
                     <div style="background: #e5e7eb; border-radius: 10px; overflow: hidden; height: 20px; position: relative;">
-                        <div style="background: \${barColor}; width: \${percentage}%; height: 100%;"></div>
+                        <div style="background: ${barColor}; width: ${percentage}%; height: 100%;"></div>
                         <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: bold; color: #1f2937;">
-                            \${percentage}%
+                            ${percentage}%
                         </span>
                     </div>
                 </td>
@@ -1143,8 +763,8 @@ function sendResultsToEmail() {
 
             <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 15px; border-radius: 0 0 10px 10px; border-top: 2px solid #f59e0b;">
                 <p style="margin: 0; color: #78350f; text-align: center; font-size: 13px;">
-                    💡 <strong>\${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
-                    \${currentLang === 'ar' 
+                    💡 <strong>${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
+                    ${currentLang === 'ar' 
                         ? 'تم إرسال هذا التقرير تلقائياً من منصة 4U التعليمية | Mr. Mohammed Hesham' 
                         : 'This report was automatically sent from 4U Educational Platform | Mr. Mohammed Hesham'}
                 </p>
